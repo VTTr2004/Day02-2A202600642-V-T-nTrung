@@ -125,12 +125,68 @@ Bottleneck mới:
 Operations review + xác nhận status. Bottleneck chấp nhận được vì là điểm kiểm soát — tránh sót rep và gửi follow-up nhầm.
 ```
 
-### Before/after impact
+## Before/after impact
 
 | Metric | Trước | Sau kỳ vọng | Ghi chú |
 |---|---:|---:|---|
-| Tổng thời gian | 30 phút/ngày | Dưới 10 phút/ngày | Target chính (bước theo dõi hằng ngày) |
-| Số bước | 6 | 5 | Giảm effort search inbox + gõ status tay |
-| Bước thủ công | 6/6 | 2/5 | Operations vẫn review, follow-up và báo manager |
-| Bottleneck chính | Check inbox + cập nhật status | Review/xác nhận status | Human boundary |
-| Risk mới | Không có AI nhận diện sai | Có risk match email/status sai | Cần review email gốc trước khi chốt Sheet |
+| **Tổng thời gian** | 30 phút/ngày | Dưới 10 phút/ngày | Target chính |
+| **Số bước** | 6 | 5 | Không chỉ giảm bước, mà giảm effort ở bước check inbox + cập nhật status |
+| **Bước thủ công** | 6/6 | 2/5 | Operations vẫn review và follow-up |
+| **Bottleneck chính** | Check inbox + cập nhật status | Review/xác nhận status | Human boundary |
+| **Risk mới** | Không có AI nhận diện sai | Có risk match email/status sai | Cần review email gốc trước khi chốt Sheet |
+
+---
+
+## Bước 5.3 — Problem Statement v0
+
+| Field | Nội dung |
+|---|---|
+| **Actor** | Nhân viên Operations hoặc Project Coordinator phụ trách liên hệ nhà cung cấp (công ty âm nhạc, event, sản xuất). |
+| **Workflow** | Lập danh sách vendor trên Google Sheet → gửi email yêu cầu báo giá/hợp tác → mỗi ngày check Gmail → cập nhật status từng vendor → follow-up nếu chưa phản hồi → báo manager tiến độ. |
+| **Bottleneck** | Bước check inbox và cập nhật status thủ công: phải search từng email thread, match với đúng vendor trong Sheet, dễ sót phản hồi hoặc cập nhật chậm. |
+| **Impact** | Khoảng **30 phút/ngày** khi theo dõi ~20 vendor; chậm chọn nhà cung cấp; manager/teammate hay hỏi lại “bên nào rep rồi”; dễ quên follow-up sau 2–3 ngày. |
+| **Success Metric** | Giảm thời gian theo dõi phản hồi từ 30 phút/ngày xuống **dưới 10 phút/ngày**; **không bỏ sót** vendor đã phản hồi; 100% vendor có status rõ: `sent` / `replied` / `follow-up needed` / `rejected`. |
+| **Boundary** | Không tự chọn vendor cuối cùng thay người; không tự gửi email follow-up nếu chưa được duyệt; chỉ dùng email/Sheet đã có quyền truy cập; mọi status chốt phải do Operations xác nhận. |
+
+---
+
+## Problem Statement v1
+
+| Field | Nội dung |
+|---|---|
+| Actor | Nhân viên Operations/Project Coordinator trong công ty âm nhạc. |
+| Workflow | Tìm vendor → ghi thông tin → gửi email yêu cầu → chờ phản hồi → check inbox → cập nhật status → follow-up nếu cần. |
+| Bottleneck | Check email thủ công và cập nhật trạng thái từng vendor mất thời gian, dễ sót phản hồi. |
+| Impact | Chậm quá trình chọn nhà cung cấp, dễ quên follow-up, manager phải hỏi lại trạng thái nhiều lần. |
+| Success Metric | Giảm thời gian check/update vendor xuống dưới 10 phút/ngày; không bỏ sót vendor đã phản hồi; status vendor rõ ràng. |
+| Boundary | AI không tự chọn vendor cuối cùng, không tự gửi follow-up nếu chưa được duyệt, không tự bịa thông tin nhà cung cấp. |
+| AI intervention point | Sau khi email được gửi và bắt đầu có phản hồi từ vendor. |
+| Mức chọn | Workflow: email template + check reply + update status + human review. |
+| Rủi ro & người thật kiểm tra | Risk: nhận diện nhầm email, tóm tắt sai nội dung báo giá, update nhầm trạng thái. Người kiểm tra: nhân viên Operations review email gốc trước khi xác nhận. |
+
+## Final decision
+
+**Decision:**  
+Go với scope nhỏ.
+
+**Pilot nhỏ nhất:**
+
+- Dùng danh sách 10 nhà cung cấp.
+- Gửi email bằng template cố định.
+- Theo dõi phản hồi trong 3–5 ngày.
+- AI/workflow chỉ làm 2 việc:
+  1. Kiểm tra vendor nào đã phản hồi.
+  2. Gợi ý status: replied / not replied / follow-up needed.
+- Nhân viên review lại trước khi cập nhật bản cuối.
+
+**Exit / rollback:**
+
+- Nếu AI nhận diện sai phản hồi quá 2 lần trong 1 tuần, quay lại check thủ công.
+- Nếu workflow làm rối hơn Google Sheet, chỉ giữ email template + Sheet status.
+- Nếu có rủi ro gửi nhầm email, không cho AI tự gửi email follow-up.
+
+**Decision rationale:**  
+Problem rõ, workflow rõ, có bottleneck thật.  
+Không cần build agent lớn ngay.  
+Workflow đơn giản là đủ: gửi email theo template, theo dõi phản hồi, cập nhật trạng thái, người thật kiểm tra.
+
