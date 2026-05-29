@@ -23,23 +23,11 @@ Ràng buộc quan trọng: AI agent không được tự động gửi email. AI
 
 ## Top 3 problem đáng chọn
 
-### 1. Soạn nháp email cá nhân hóa cho sản phẩm mới hoặc chương trình mới
-
-Đây là vấn đề rõ nhất trong bối cảnh bán hàng. Sales thường cần gửi email cho nhiều khách, nhưng nếu viết thủ công thì mất thời gian, còn nếu gửi một email chung thì thiếu cá nhân hóa.
-
-Điều chưa chắc: danh sách khách hàng có đủ dữ liệu để cá nhân hóa hay không, ví dụ tên, công ty, lịch sử mua hàng, sản phẩm từng quan tâm, phân khúc, hoặc lần tương tác gần nhất.
-
-### 2. Gợi ý câu trả lời cho email khách hàng
-
-Khách hàng thường trả lời email để hỏi thêm thông tin. Nếu sales phải tự đọc và tự trả lời mọi email, thời gian phản hồi sẽ chậm. AI có thể giúp đọc email đến, hiểu câu hỏi, và tạo nháp trả lời.
-
-Điều chưa chắc: AI có được truy cập nguồn thông tin đáng tin cậy như bảng giá, tồn kho, FAQ, chính sách bảo hành, và điều kiện khuyến mãi hay không.
-
-### 3. Phân nhóm khách hàng và gợi ý nội dung phù hợp
-
-Nếu gửi cùng một nội dung cho toàn bộ khách hàng, email dễ bị bỏ qua. Phân nhóm khách giúp nội dung liên quan hơn, ví dụ khách cũ nhận ưu đãi quay lại, khách tiềm năng nhận email giới thiệu, khách VIP nhận thông tin sớm.
-
-Điều chưa chắc: dữ liệu khách hàng có sạch và có đủ thuộc tính để phân nhóm chính xác hay không.
+| Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
+|---|---|---|---|
+| 1 | Soạn nháp email cá nhân hóa cho sản phẩm mới hoặc chương trình mới | Workflow rõ, sales mất nhiều thời gian viết/chỉnh email, có metric tốt như thời gian chuẩn bị email và tỷ lệ phản hồi | Dữ liệu khách hàng có đủ để cá nhân hóa tốt hay không |
+| 2 | Gợi ý câu trả lời cho email khách hàng | Pain thật, email khách hỏi lặp lại nhiều, AI có thể giúp đọc email và tạo nháp trả lời nhanh | AI có được truy cập nguồn thông tin đáng tin cậy như bảng giá, tồn kho, FAQ và chính sách không |
+| 3 | Phân nhóm khách hàng và gợi ý nội dung phù hợp | Impact rộng, giúp email liên quan hơn thay vì gửi một nội dung chung cho toàn bộ danh sách | Dữ liệu khách hàng có sạch và đủ thuộc tính để phân nhóm chính xác hay không |
 
 ## Problem Card #1: Soạn nháp email cá nhân hóa cho chiến dịch bán hàng
 
