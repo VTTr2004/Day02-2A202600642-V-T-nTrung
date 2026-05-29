@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#334155"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font-family: Arial, sans-serif; font-size: 34px; font-weight: 800; fill: #0f172a; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; fill: #475569; }
+      .laneTitle { font-family: Arial, sans-serif; font-size: 22px; font-weight: 800; fill: #0f172a; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 800; fill: #0f172a; }
+      .boxText { font-family: Arial, sans-serif; font-size: 14px; fill: #334155; }
+      .small { font-family: Arial, sans-serif; font-size: 13px; fill: #475569; }
+      .noteTitle { font-family: Arial, sans-serif; font-size: 17px; font-weight: 800; fill: #7f1d1d; }
+      .noteText { font-family: Arial, sans-serif; font-size: 14px; fill: #7f1d1d; }
+      .box { rx: 18; ry: 18; filter: url(#shadow); stroke-width: 2; }
+      .human { fill: #ecfeff; stroke: #0891b2; }
+      .ai { fill: #eff6ff; stroke: #2563eb; }
+      .data { fill: #f0fdf4; stroke: #16a34a; }
+      .risk { fill: #fff7ed; stroke: #f97316; }
+      .decision { fill: #fef2f2; stroke: #dc2626; }
+      .output { fill: #f5f3ff; stroke: #7c3aed; }
+      .lane { fill: #ffffff; stroke: #e2e8f0; stroke-width: 2; rx: 22; ry: 22; }
+      .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .arrowBlue { stroke: #2563eb; stroke-width: 3; fill: none; marker-end: url(#arrowBlue); }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="1000"/>
+
+  <text class="title" x="70" y="60">Workflow: AI hỗ trợ soạn email bán hàng</text>
+  <text class="subtitle" x="70" y="92">AI tạo nháp / gợi ý phản hồi — Sales kiểm tra, chỉnh sửa và tự quyết định gửi</text>
+
+  <rect x="65" y="125" width="1270" height="245" class="lane"/>
+  <text class="laneTitle" x="95" y="165">1) Chiến dịch outbound: sản phẩm mới / chương trình khuyến mãi</text>
+
+  <rect x="95" y="200" width="210" height="105" class="box human"/>
+  <text class="boxTitle" x="120" y="232">Sales nhập đầu vào</text>
+  <text class="boxText" x="120" y="258">• Mục tiêu chiến dịch</text>
+  <text class="boxText" x="120" y="280">• Sản phẩm / ưu đãi</text>
+
+  <rect x="355" y="200" width="230" height="105" class="box data"/>
+  <text class="boxTitle" x="380" y="232">Nguồn dữ liệu chuẩn</text>
+  <text class="boxText" x="380" y="258">• Bảng giá, tồn kho</text>
+  <text class="boxText" x="380" y="280">• FAQ, chính sách</text>
+
+  <rect x="635" y="200" width="235" height="105" class="box ai"/>
+  <text class="boxTitle" x="660" y="232">AI phân nhóm khách</text>
+  <text class="boxText" x="660" y="258">• Khách mới / cũ / VIP</text>
+  <text class="boxText" x="660" y="280">• Lịch sử quan tâm</text>
+
+  <rect x="920" y="200" width="245" height="105" class="box ai"/>
+  <text class="boxTitle" x="945" y="232">AI tạo nháp cá nhân hóa</text>
+  <text class="boxText" x="945" y="258">• Subject line, CTA</text>
+  <text class="boxText" x="945" y="280">• Tone theo phân khúc</text>
+
+  <rect x="95" y="430" width="1270" height="255" class="lane"/>
+  <text class="laneTitle" x="95" y="470">2) Inbound reply: khách hàng hỏi thêm thông tin</text>
+
+  <rect x="95" y="505" width="220" height="105" class="box output"/>
+  <text class="boxTitle" x="120" y="537">Email khách hàng đến</text>
+  <text class="boxText" x="120" y="563">• Hỏi giá / tính năng</text>
+  <text class="boxText" x="120" y="585">• Ưu đãi / cách mua</text>
+
+  <rect x="365" y="505" width="225" height="105" class="box ai"/>
+  <text class="boxTitle" x="390" y="537">AI đọc &amp; tóm tắt</text>
+  <text class="boxText" x="390" y="563">• Ý định chính</text>
+  <text class="boxText" x="390" y="585">• Mức độ ưu tiên</text>
+
+  <rect x="640" y="505" width="230" height="105" class="box data"/>
+  <text class="boxTitle" x="665" y="537">Tra thông tin liên quan</text>
+  <text class="boxText" x="665" y="563">• Giá, tồn kho, FAQ</text>
+  <text class="boxText" x="665" y="585">• Điều kiện ưu đãi</text>
+
+  <rect x="920" y="505" width="245" height="105" class="box ai"/>
+  <text class="boxTitle" x="945" y="537">AI gợi ý câu trả lời</text>
+  <text class="boxText" x="945" y="563">• Nháp email phản hồi</text>
+  <text class="boxText" x="945" y="585">• Nội dung nhất quán</text>
+
+  <rect x="750" y="735" width="245" height="115" class="box risk"/>
+  <text class="boxTitle" x="775" y="768">Kiểm tra rủi ro nội dung</text>
+  <text class="boxText" x="775" y="794">• Sai giá / sai thời hạn</text>
+  <text class="boxText" x="775" y="816">• Thiếu CTA / lệch tone</text>
+
+  <rect x="1045" y="725" width="250" height="135" class="box decision"/>
+  <text class="boxTitle" x="1070" y="760">Human approval gate</text>
+  <text class="boxText" x="1070" y="786">Sales kiểm tra nháp</text>
+  <text class="boxText" x="1070" y="808">chỉnh sửa nếu cần, rồi</text>
+  <text class="boxText" x="1070" y="830">quyết định gửi thủ công</text>
+
+  <rect x="105" y="725" width="240" height="135" class="box output"/>
+  <text class="boxTitle" x="130" y="760">Kết quả mong muốn</text>
+  <text class="boxText" x="130" y="786">• Chuẩn bị email giảm 50–70%</text>
+  <text class="boxText" x="130" y="808">• Tăng mở mail / phản hồi</text>
+  <text class="boxText" x="130" y="830">• 100% email được duyệt</text>
+
+  <rect x="390" y="725" width="300" height="135" class="box decision"/>
+  <text class="noteTitle" x="415" y="760">Ràng buộc bắt buộc</text>
+  <text class="noteText" x="415" y="786">AI KHÔNG tự động gửi email.</text>
+  <text class="noteText" x="415" y="808">AI chỉ được tạo nháp, gợi ý,</text>
+  <text class="noteText" x="415" y="830">tóm tắt và kiểm tra nội dung.</text>
+
+  <!-- arrows outbound -->
+  <path class="arrow" d="M305 252 L350 252"/>
+  <path class="arrow" d="M585 252 L630 252"/>
+  <path class="arrow" d="M870 252 L915 252"/>
+  <path class="arrowBlue" d="M1165 252 C1240 252 1245 720 1045 780"/>
+
+  <!-- arrows inbound -->
+  <path class="arrow" d="M315 557 L360 557"/>
+  <path class="arrow" d="M590 557 L635 557"/>
+  <path class="arrow" d="M870 557 L915 557"/>
+  <path class="arrowBlue" d="M1165 557 C1245 590 1245 705 1075 725"/>
+
+  <!-- shared checks -->
+  <path class="arrow" d="M995 790 L1040 790"/>
+  <path class="arrow dash" d="M750 790 L695 790"/>
+  <path class="arrow" d="M390 790 L350 790"/>
+  <path class="arrow dash" d="M1170 860 C1170 925 225 925 225 865"/>
+
+  <text class="small" x="1075" y="900">Sau khi gửi: theo dõi phản hồi, gợi ý follow-up nháp, tiếp tục vòng lặp.</text>
+  <text class="small" x="70" y="965">Legend: Xanh dương = AI hỗ trợ • Xanh lá = dữ liệu chuẩn • Cam = kiểm tra rủi ro • Đỏ = con người duyệt</text>
+</svg>
